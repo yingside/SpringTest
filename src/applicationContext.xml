@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  Date类型属性的注入  -->
+    <bean id="dateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="yyyy-MM-dd"></constructor-arg>
+    </bean>
+
+    <bean name="employee" class="com.yingside.po.Employee">
+        <property name="empId" value="1"></property>
+        <property name="empName" value="刘备"></property>
+        <property name="empTel" value="13312345671"></property>
+        <property name="empEducation" value="本科"></property>
+        <property name="empBirthday" value="1999-10-10"></property>
+        <!--Date类型属性的注入-->
+<!--        <property name="empBirthday">-->
+<!--            <bean factory-bean="dateFormat" factory-method="parse">-->
+<!--                <constructor-arg value="1997-09-01"></constructor-arg>-->
+<!--            </bean>-->
+<!--        </property>-->
+    </bean>
+</beans>
