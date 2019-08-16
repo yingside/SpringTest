@@ -14,11 +14,19 @@
         <property name="empTel" value="13312345671"></property>
         <property name="empEducation" value="本科"></property>
         <property name="empBirthday" value="1999-10-10"></property>
-        <!--Date类型属性的注入-->
-<!--        <property name="empBirthday">-->
-<!--            <bean factory-bean="dateFormat" factory-method="parse">-->
-<!--                <constructor-arg value="1997-09-01"></constructor-arg>-->
-<!--            </bean>-->
-<!--        </property>-->
+        <property name="dept" ref="dept"></property>
     </bean>
+
+    <bean id="dept" class="com.yingside.po.Dept">
+        <property name="deptId" value="1"></property>
+        <property name="deptName" value="财务部"></property>
+        <property name="deptInfo" value="管理财务"></property>
+        <!--Date类型属性的注入-->
+        <property name="deptCreateDate">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="1990-09-01"></constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
 </beans>

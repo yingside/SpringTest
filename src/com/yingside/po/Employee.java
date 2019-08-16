@@ -8,8 +8,15 @@ public class Employee {
     private String empTel;
     private String empEducation;
     private String empBirthday;
-//    private Date empBirthday;
+    private Dept dept;
 
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
     public int getEmpId() {
         return empId;
     }
@@ -50,14 +57,6 @@ public class Employee {
         this.empBirthday = empBirthday;
     }
 
-    /*public Date getEmpBirthday() {
-        return empBirthday;
-    }
-
-    public void setEmpBirthday(Date empBirthday) {
-        this.empBirthday = empBirthday;
-    }*/
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -65,7 +64,8 @@ public class Employee {
                 ", empName='" + empName + '\'' +
                 ", empTel='" + empTel + '\'' +
                 ", empEducation='" + empEducation + '\'' +
-                ", empBirthday=" + empBirthday +
+                ", empBirthday='" + empBirthday + '\'' +
+                ", dept=" + dept +
                 '}';
     }
 }
