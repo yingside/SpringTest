@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.yingside"></context:component-scan>
 
     <!--  Date类型属性的注入  -->
     <bean id="dateFormat" class="java.text.SimpleDateFormat">
@@ -28,5 +31,43 @@
             </bean>
         </property>
     </bean>
+
+    <bean id="beanTest" class="com.yingside.po.BeanTest">
+        <property name="list">
+            <list>
+                <value>111</value>
+                <value>222</value>
+                <value>333</value>
+            </list>
+        </property>
+
+        <property name="depts">
+            <set>
+                <ref bean="dept"></ref>
+                <ref bean="dept"></ref>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry>
+                    <key>
+                        <value>zs</value>
+                    </key>
+                    <ref bean="employee"></ref>
+                </entry>
+            </map>
+        </property>
+
+        <property name="strings">
+            <array>
+                <value>sss</value>
+                <value>aa</value>
+                <value>ddd</value>
+            </array>
+        </property>
+    </bean>
+
+
 
 </beans>
